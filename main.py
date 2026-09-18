@@ -6,28 +6,31 @@ def cadastrar():
         return
     for aluno in alunos:
         if aluno.lower() == nome.lower():
-            print("Aluno já cadastrado.")
-            return
+        print("Aluno já cadastrado.")
+        return
     alunos.append(nome)
     print("Aluno cadastrado.")
 
 def listar():
-    for aluno in alunos:
-        print(aluno)
-    while True:
-        print("\n--- CADASTRO DE ALUNOS ---")
-        print("1 - Cadastrar")
-        print("2 - Listar")
-        print("0 - Sair")
-
-        opcao = input("Escolha: ")
-
-        if opcao == "0":
-            print("Programa encerrado.")
-            break
-        elif opcao == "1":
-            cadastrar()
-        elif opcao == "2":
-            listar()
-        else:
-            print("Opção inválida.")
+    if len(alunos) == 0:
+        print("Nenhum aluno cadastrado.")
+        return
+print("\n--- ALUNOS ---")
+for numero, aluno in enumerate(alunos, start=1):
+    print(f"{numero}. {aluno}")
+    print(f"Total: {len(alunos)} aluno(s)")
+while True:
+    print("\n--- CADASTRO DE ALUNOS ---")
+    print("1 - Cadastrar")
+    print("2 - Listar")
+    print("0 - Sair")
+    opcao = input("Escolha: ")
+    if opcao == "0":
+        print("Programa encerrado.")
+        break
+    elif opcao == "1":
+        cadastrar()
+    elif opcao == "2":
+        listar()
+    else:
+        print("Opção inválida.")
