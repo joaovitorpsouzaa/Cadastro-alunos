@@ -31,11 +31,19 @@ def buscar():
             return
         print("Aluno não encontrado.")
 
+def excluir():
+    exclusao=input("Digite o nome do aluno que deseja excluir:").strip()
+    if exclusao in alunos:
+        alunos.remove(exclusao)
+        print("Nome excluido com sucesso")
+        return
+
 while True:
     print("\n--- CADASTRO DE ALUNOS ---")
     print("1 - Cadastrar")
     print("2 - Listar")
     print("3 - Buscar")
+    print("4 - Excluir")
     print("0 - Sair")
 
     opcao = input("Escolha: ")
@@ -48,5 +56,7 @@ while True:
         listar()
     elif opcao == "3":
         buscar()
+    elif opcao == "4":
+        excluir()
     else:
         print("Opção inválida.")
